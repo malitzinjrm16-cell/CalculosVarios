@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculos Varios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo personalizado para lograr la pestaña exacta del mockup */
+        .pestana-titulo {
+            position: absolute;
+            top: -22px;
+            left: 40px;
+            background-color: white;
+            border: 1px solid #212529;
+            padding: 8px 30px;
+            font-weight: 500;
+            z-index: 2;
+        }
+        .contenedor-mockup {
+            position: relative;
+            border: 1px solid #212529;
+            margin-top: 50px;
+            padding: 50px 40px 40px 40px;
+            background-color: white;
+            width: 100%;
+            max-width: 700px;
+        }
+    </style>
+</head>
+<body class="bg-white d-flex align-items-center justify-content-center vh-100">
+
+<div class="contenedor-mockup">
+
+    <div class="pestana-titulo text-dark">
+        Cálculos varios
+    </div>
+
+    <form id="formCalculos" onsubmit="return false;">
+
+        <div class="mb-4" style="max-width: 250px;">
+            <input type="number"
+                   id="numero"
+                   class="form-control border-secondary-subtle rounded-1 text-muted"
+                   placeholder="Ingrese un número"
+                   required>
+        </div>
+
+        <div class="mb-5" style="max-width: 250px;">
+            <select id="operacion"
+                    class="form-select border-secondary-subtle rounded-1 text-dark"
+                    onchange="actualizarTextoBoton()">
+                <option value="primo">Es primo</option>
+                <option value="par">Es par</option>
+                <option value="factorial">Factorial</option>
+                <option value="suma_pares">Suma pares (entre 1 y el número)</option>
+                <option value="suma_impares">Suma impares (entre 1 y el número)</option>
+            </select>
+        </div>
+
+        <div class="mb-5">
+            <h6 class="fw-bold text-dark">
+                Resultado: <span id="resultadoTxt" class="fw-bold"></span>
+            </h6>
+        </div>
+
+        <div>
+            <button type="button"
+                    id="btnAccion"
+                    class="btn btn-light border border-secondary-subtle rounded-1 px-4 text-dark"
+                    style="background-color: #efefef;"
+                    onclick="realizarCalculo()">
+                Verificar
+            </button>
+        </div>
+
+    </form>
+</div>
+
+<script th:src="@{/Calculos.js}"></script>
+</body>
+</html>
